@@ -1,0 +1,42 @@
+DREAM — prototype 0.2, build 6 — 11 November 2026
+
+CURRENT EXPERIENCE
+English interface and English speech recognition.
+Record and Write are separate actions, directly in Home. Record starts the microphone in Home; Write displays only the text input. No capture sheet, no truncated D logo. Finish recording closes the audio input. Words appear live while speaking. The primary action is Interpret dream.
+Interpret dream creates a possible personal reading, a question, a short title and a procedural visual informed by the story. The result opens automatically with artwork above and explanation below, and is saved in the journal. There is no separate interpretation action to hunt for after saving.
+The journal is a personal notebook: paper pages, dates, handwriting-style type and a picture of each night. Pages can be swiped and entries reopened, edited, played back or deleted. New page returns to text input in Home.
+
+VOICE
+Uses SpeechTranscriber and SpeechAnalyzer with the English en-US on-device model, preparing the model through AssetInventory if needed. AVAudioEngine records the microphone and streams converted 16-bit PCM frames to the recognizer. Progressive transcripts replace hypotheses rather than appending duplicated partial words. The original audio is preserved separately.
+The old SFSpeechRecognizer was explicitly unavailable for on-device Italian on the real iPhone. Its permission callback also caused the original Swift actor crash. That legacy recognizer and callback pipeline have been replaced.
+Microphone permission is requested only by Record. The maximum recording length is two minutes. Audio is captured to CAF and closed before playback/saving. Backgrounding or cancelling stops input and retains the audio draft. A new recording intentionally replaces the current audio draft. The previous m4a draft format remains readable.
+Audio can still be saved for later if no transcript is available. Saved recordings can be played from the journal. Deleting a dream deletes its associated audio file. The app does not fall back to a remote transcription provider.
+
+INTERPRETATION AND VISUALS
+Uses on-device Apple Intelligence Foundation Models when available. Guided generation produces an English title, possible reading, one personal question and artistic parameters (motif, tone, visual energy). The Canvas draws orbits, flows or fragments with colour, grain, distortion and gentle motion. No image-generation model is used.
+The image is an artistic response, not a physiological measurement or a scientific decoding. Interpretation is tentative, grounded in the narrative, with no universal dictionary, prediction, diagnosis or suggestions of hidden memories. Visual mood is explicitly labelled as a visual suggestion, not as the dreamer's own reported emotion.
+If Apple Intelligence is unavailable or generation fails, the app clearly identifies the result as a reflection prompt rather than an AI interpretation. It does not claim to have interpreted the dream.
+
+DATA
+Private local JSON journal and draft, written atomically with complete iOS file protection. Saved clips are stored in Documents/audio with complete protection. Text drafts are recovered on reopening. The format remains compatible with earlier entries. Edits replace the existing ID; unreadable journal files are not overwritten.
+No application HTTP calls, telemetry, remote AI provider or implemented cloud sync. Standard device backup settings still apply. Optional HealthKit data is available from the dream detail; the query uses the window preceding that entry, rather than today's night for older entries. It includes sleep and sampled heart rate, not SpO2 or HRV. Heart rate only modulates subtle visual motion.
+Export shares the visual image, without dream text or health statistics.
+
+VERIFICATION
+12 automated tests passed: 9 Swift Testing checks for persistence, backward compatibility, audio-only preservation/deletion, partial transcript replacement and microphone-frame conversion; 3 XCTest UI checks for interpretation-to-journal flow, restored draft and microphone-permission handling. The converter test uses a generated tone, not human audio. UI tests use fictional stories in a dedicated simulator.
+Verified directly on the physical iPhone 17:
+- Foundation Models availability: available.
+- An actual English interpretation generated successfully from a fictional changing-house/quiet-garden story, including title and visual motif.
+- English speech assets: ready.
+- The native speech model uses 16-bit PCM at 16 kHz.
+- A five-second synthetic English recording was transcribed correctly: “I was walking through a changing house. Then I found a quiet garden and felt calm.”
+The earlier hardware recording timer was confirmed by the user. Live microphone input with the replacement streaming recognizer still needs the final user check; file transcription and frame conversion have been verified independently.
+The diagnostic probe is DEBUG-only and runs only with explicit CLI flags. It uses a fixed fictional report or the explicitly supplied synthetic file, saves no test entry in the user's journal and never activates the microphone. Diagnostic stage files do not contain personal dream text or recordings.
+
+PROJECT
+Open DREAM.xcodeproj, scheme DREAM. Xcode 27.2, iOS 27.0+, Swift 6 language mode with strict concurrency. No third-party dependencies. Unit target DREAMTests; UI target DREAMUITests. Name, icon and visual identity remain provisional.
+Kreo was installed by the user; DREAM does not depend on it.
+The first user brief remains the visual reference: minimal interface and expressive procedural imagery. The exact Pinterest pin was inaccessible through the tool; no claim is made of having reproduced it.
+
+DELIVERY CONFIRMED
+Final build 6 installed successfully and launched normally on the physical iPhone 17 after verification. The user’s journal has not been populated with probe examples. The final prompt asks for plain everyday English. The current pipeline interprets before opening the result, rather than merely saving the input. Hardware synthetic speech transcription and real Foundation Models generation both passed; the final 12-test run succeeded. The shipping development build has no active probe flag on normal launch.

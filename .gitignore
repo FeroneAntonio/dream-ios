@@ -1,0 +1,35 @@
+# macOS and Xcode user state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Generated builds and test results
+DerivedData/
+build/
+.build/
+*.xcarchive/
+*.xcresult/
+*.app/
+*.ipa
+*.dSYM/
+*.log
+
+# Local workspace and runtime data
+work/
+.env
+.env.*
+*.mobileprovision
+*.p12
+*.p8
+*.key
+dreams.json
+dream-draft.json
+voice-draft.*
+voice-status.txt
+verification-status.json
+verification-speech.*
+audio/
+*.caf
+*.m4a
