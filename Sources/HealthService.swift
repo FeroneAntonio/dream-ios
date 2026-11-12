@@ -39,7 +39,21 @@ final class HealthService {
         let pulses = try await pulseQuery.result(for: store)
         try Task.checkCancellation()
         let values = pulses.map { $0.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute())) }
+        let stages = samples.filter { $0.sourceRevision.source.bundleIdentifier == source }.compactMap { sample -> SleepInterval? in
+            let stage: SleepStage
+            switch HKCategoryValueSleepAnalysis(rawValue: sample.value) {
+            case .awake: stage = .awake
+            case .asleepCore: stage = .light
+            case .asleepDeep: stage = .deep
+            case .asleepREM: stage = .rem
+            case .asleepUnspecified: stage = .unknown
+            default: return nil
+            }
+            return SleepInterval(start: sample.startDate, end: sample.endDate, stage: stage)
+        }
+        let timeline = SleepTimeline.normalizedHealth(stages, within: DateInterval(start: start, end: end))
         return NightContext(start: start, end: end, hours: merged.reduce(0) { $0 + $1.duration } / 3600,
-                            heartRate: values.isEmpty ? nil : values.reduce(0, +) / Double(values.count), sampleCount: values.count)
+                            heartRate: values.isEmpty ? nil : values.reduce(0, +) / Double(values.count), sampleCount: values.count,
+                            healthSleep: timeline)
     }
 }

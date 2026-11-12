@@ -1,0 +1,10 @@
+{
+  "upstream_commit": "088e363873b4ac5b27bc23fb038abc052889698c",
+  "preprocessing": "upstream-prepared-mat-v1",
+  "trained": false,
+  "synthetic": true,
+  "weights_source": "REPLACE_WITH_AUTHENTIC_HTTPS_SOURCE",
+  "training_provenance": "REPLACE_WITH_COHORT_TRAINING_AND_VALIDATION_DETAILS",
+  "cnn": {"file": "cnn.pt", "sha256": "REPLACE_WITH_SHA256"},
+  "sequence": {"file": "sequence.pt", "sha256": "REPLACE_WITH_SHA256"}
+}

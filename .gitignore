@@ -33,3 +33,22 @@ verification-speech.*
 audio/
 *.caf
 *.m4a
+
+# Research recordings, checkpoint caches and generated model packages
+*.pt
+*.pth
+*.safetensors
+*.mat
+__pycache__/
+*.mlpackage/
+*.mlmodelc/
+Research/**/data/
+Research/**/checkpoints/
+Models/dreamy-verification.json
+
+.venv/
+*.dreamnight.json
+Research/**/checkpoints.json
+
+# Local creative handoff: do not publish
+DREAM_CONTESTO_PER_BRIEF_VISIVO.md

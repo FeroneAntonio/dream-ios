@@ -10,6 +10,7 @@ struct NightSummary: View {
                 LabeledContent("Average sampled heart rate", value: "\(pulse.formatted(.number.precision(.fractionLength(0)))) bpm")
                 Text("\(night.sampleCount) samples available").font(.footnote).foregroundStyle(Color("SecondaryInk"))
             } else { Text("Heart rate unavailable").foregroundStyle(Color("SecondaryInk")) }
+            if let timeline = night.healthSleep { SleepTimelineView(timeline: timeline) }
         }
     }
 }

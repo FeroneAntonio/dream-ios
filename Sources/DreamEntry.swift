@@ -13,6 +13,8 @@ struct DreamEntry: Codable, Identifiable, Hashable {
     var motif: DreamMotif = .orbit
     var title: String?
     var audioFilename: String?
+    var researchSleep: SLAMSSReport?
+    var emotions: DreamEmotionAnalysis?
 
     var displayTitle: String {
         if let title, !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return title }

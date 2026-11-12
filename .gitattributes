@@ -1,0 +1,4 @@
+# Preserve upstream source and license text byte-for-byte, including whitespace.
+Research/SLAMSSIFS/dream_slamss/vendor/** -whitespace
+Research/DReAMy/LICENSE -whitespace
+Models/ThirdPartyNotices.txt -whitespace

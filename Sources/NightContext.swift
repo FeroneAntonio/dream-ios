@@ -6,4 +6,5 @@ struct NightContext: Codable, Hashable {
     var hours: Double
     var heartRate: Double?
     var sampleCount: Int
+    var healthSleep: SleepTimeline?
 }

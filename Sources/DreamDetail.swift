@@ -25,6 +25,7 @@ struct DreamDetail: View {
                 if let title = entry.title, !title.isEmpty { Text(title).font(.title).fontDesign(.serif) }
                 if let filename = entry.audioFilename { DreamAudioPlayback(filename: filename) }
                 Text(entry.text).textSelection(.enabled)
+                if let emotions = entry.emotions { DreamEmotionView(analysis: emotions, motif: entry.motif) }
                 if !entry.reflection.isEmpty {
                     Divider()
                     Text(entry.usedAI ? "A possible meaning" : "A moment to reflect")
@@ -62,6 +63,7 @@ struct DreamDetail: View {
                         Text(reader.nightMessage).font(.footnote).foregroundStyle(Color("SecondaryInk"))
                     }.padding(.top)
                 }
+                SLAMSSResearchSection(report: entry.researchSleep, dreamDate: entry.date, onImport: importResearchSleep)
                 Button("Delete dream", role: .destructive, action: requestDeletion).frame(minHeight: 44)
                     .confirmationDialog("Delete this dream?", isPresented: $confirmDeletion) {
                         Button("Delete", role: .destructive, action: delete)
@@ -94,6 +96,7 @@ struct DreamDetail: View {
         updated.motif = result.motif
         updated.feeling = result.feeling
         updated.intensity = result.intensity
+        updated.emotions = result.emotions
         if snapshot.title?.isEmpty != false { updated.title = result.title }
         if store.save(updated) { entry = updated; removeExport() }
     }
@@ -107,6 +110,11 @@ struct DreamDetail: View {
         if store.save(updated) { entry = updated }
     }
     private func edit() { editing = true }
+    private func importResearchSleep(_ report: SLAMSSReport) {
+        var updated = entry
+        updated.researchSleep = report
+        if store.save(updated) { entry = updated }
+    }
     private func applyEdit(_ updated: DreamEntry) { entry = updated; removeExport() }
     private func requestDeletion() { confirmDeletion = true }
     private func delete() { store.delete(entry); if store.error == nil { dismiss() } }

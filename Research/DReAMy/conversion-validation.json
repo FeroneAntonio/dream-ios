@@ -1,0 +1,85 @@
+{
+  "model": "DReAMy-lib/bert-base-cased-DreamBank-emotion-presence",
+  "revision": "302196dad5648c1a28d70de3055373ef11975f04",
+  "source_sha256": "d6ada0805add6533d620634cf1c3ab6fc98d27f9c3b7e03e4004f51dcddf7fe5",
+  "labels": [
+    "AN",
+    "AP",
+    "SD",
+    "CO",
+    "HA"
+  ],
+  "token_limit": 512,
+  "precision": "float16",
+  "license": "Apache-2.0",
+  "fixtures": [
+    {
+      "text": "I was lost in a maze. I felt confused and could not find my way home.",
+      "scores": [
+        0.012194132432341576,
+        0.45992499589920044,
+        0.05802474543452263,
+        0.9017477631568909,
+        0.015424552373588085
+      ],
+      "max_logit_error": 0.02922677993774414
+    },
+    {
+      "text": "I was laughing with my friends in a beautiful garden. I felt happy.",
+      "scores": [
+        0.020606474950909615,
+        0.03384403511881828,
+        0.02859835885465145,
+        0.039564553648233414,
+        0.9620362520217896
+      ],
+      "max_logit_error": 0.01692342758178711
+    },
+    {
+      "text": "A stranger chased me through a dark street. I was terrified.",
+      "scores": [
+        0.03365296497941017,
+        0.9500414729118347,
+        0.024703869596123695,
+        0.03739713504910469,
+        0.03149937838315964
+      ],
+      "max_logit_error": 0.011132955551147461
+    },
+    {
+      "text": "I woke up crying because my friend had gone away.",
+      "scores": [
+        0.16572809219360352,
+        0.09636510908603668,
+        0.9267027974128723,
+        0.025711586698889732,
+        0.04377274215221405
+      ],
+      "max_logit_error": 0.012672185897827148
+    },
+    {
+      "text": "I was angry and shouted at everyone in the room.",
+      "scores": [
+        0.9048188328742981,
+        0.1063188686966896,
+        0.024145422503352165,
+        0.08166611194610596,
+        0.04328484460711479
+      ],
+      "max_logit_error": 0.015701770782470703
+    },
+    {
+      "text": "I looked at a table and a window.",
+      "scores": [
+        0.02964751049876213,
+        0.13028541207313538,
+        0.02161533385515213,
+        0.628749430179596,
+        0.09964530169963837
+      ],
+      "max_logit_error": 0.007958173751831055
+    }
+  ],
+  "max_logit_error": 0.02922677993774414,
+  "mask_conversion": "Represent float32 minimum attention mask as -10000 to avoid FP16 overflow; compared to original unmodified PyTorch reference."
+}

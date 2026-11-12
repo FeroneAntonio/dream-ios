@@ -80,6 +80,12 @@ final class DreamComposer {
         var title: String?
         var motif: DreamMotif = capturedFeeling == .confusion ? .fragment : .orbit
         status = nil
+        var emotions: DreamEmotionAnalysis?
+        if useAI {
+            do { emotions = try await DreamEmotionAnalyzer.analyze(capturedText) }
+            catch is CancellationError { return }
+            catch { status = "DReAMy emotion suggestions are unavailable for this text or build. Your reading can still continue." }
+        }
         if aiAvailable && useAI {
             do {
                 let session = LanguageModelSession(instructions: """
@@ -91,7 +97,8 @@ final class DreamComposer {
                 Suggest an artistic visual motif, tone and energy from the report. These are creative choices, not measured facts.
                 Write in English. Keep the interpretation to 2-3 sentences, followed by one open personal question. Up to 100 words.
                 """)
-                let response = try await session.respond(to: "Dream report: <dream>\(capturedText.prefix(5000))</dream>", generating: DreamReading.self)
+                let emotionContext = emotions.map { "DReAMy tentatively suggested these emotions in the report: \($0.summary.isEmpty ? "none" : $0.summary). These can be wrong; do not invent causes or treat them as the dreamer's confirmed feelings." } ?? ""
+                let response = try await session.respond(to: "\(emotionContext)\nDream report: <dream>\(capturedText.prefix(5000))</dream>", generating: DreamReading.self)
                 title = response.content.title
                 visualFeeling = response.content.tone.feeling
                 visualIntensity = response.content.visualEnergy.isFinite ? min(1, max(0, response.content.visualEnergy)) : capturedIntensity
@@ -103,7 +110,9 @@ final class DreamComposer {
             catch { status = "Apple Intelligence could not complete a reading. Your dream and portrait are safe." }
         } else if useAI { status = "Apple Intelligence is not ready on this iPhone. This is a reflection prompt, not an AI interpretation." }
         guard !Task.isCancelled else { return }
+        if let suggested = emotions?.suggestedMotif { motif = suggested }
         result = DreamEntry(text: capturedText, feeling: visualFeeling, intensity: visualIntensity,
-                            reflection: observation, question: question, usedAI: usedAI, night: capturedNight, motif: motif, title: title)
+                            reflection: observation, question: question, usedAI: usedAI, night: capturedNight, motif: motif, title: title,
+                            emotions: emotions)
     }
 }

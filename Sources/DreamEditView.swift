@@ -3,6 +3,8 @@ import SwiftUI
 struct DreamEditView: View {
     @State private var entry: DreamEntry
     @State private var title: String
+    private let originalText: String
+    private let originalReflection: String
     var onSave: (DreamEntry) -> Void
     @Environment(DreamStore.self) private var store
     @Environment(\.dismiss) private var dismiss
@@ -10,6 +12,8 @@ struct DreamEditView: View {
     init(entry: DreamEntry, onSave: @escaping (DreamEntry) -> Void) {
         _entry = State(initialValue: entry)
         _title = State(initialValue: entry.title ?? "")
+        originalText = entry.text
+        originalReflection = entry.reflection
         self.onSave = onSave
     }
 
@@ -49,6 +53,15 @@ struct DreamEditView: View {
     private func cancel() { dismiss() }
     private func save() {
         entry.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        if entry.text != originalText {
+            // Derived suggestions must never silently refer to an older story.
+            entry.emotions = nil
+            if entry.reflection == originalReflection && entry.usedAI {
+                entry.reflection = ""
+                entry.question = ""
+            }
+            entry.usedAI = false
+        }
         if store.save(entry) { onSave(entry); dismiss() }
     }
 }
