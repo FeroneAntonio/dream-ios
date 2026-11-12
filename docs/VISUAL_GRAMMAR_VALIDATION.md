@@ -81,3 +81,11 @@ The final iPhone 17 run completed all eight 1080 px prints with renderer 2. One-
 After the final asymmetrical gesture revision, the targeted 11-method grammar suite (including 14 family cases and old-renderer golden compatibility) also passed.
 
 The final refinement UI check also passed after that revision: preview, cancel, confirm, restart and reopen, with the saved portrait and explanation captured in a simulator screenshot.
+
+## Code organization revision - build 10
+
+The entire Swift app is now grouped by feature, artwork, integration and persistence on disk and in Xcode. All 117 source files have a responsibility entry in `SWIFT_FILE_INDEX.md`. SwiftUI capture/detail sections are separate views; fourteen base algorithms and ink extensions are separated without changing calculation order. No new runtime dependency or persistence schema was introduced.
+
+After the refactor, 36 Swift Testing methods and all five UI tests passed again. Strict swift-format lint produced no diagnostics for Sources, Tests, UITests and Tools. The native gallery regenerated 46 PNGs (eight stories at three resolutions, monochrome versions and fourteen family previews): every decoded pixel matched the previous version, and all eight JSON recipes matched. Xcode group synchronization was checked for idempotence, unique build membership and complete source coverage. A signed physical-iPhone build also succeeded.
+
+The final source move of the transcript into Capture/Models, navigation comments and build-number update were compiled in that signed build; the full simulator suite preceded those non-behavioral changes. The upstream Python research code was unchanged and its tests were not repeated in this organization-only revision.

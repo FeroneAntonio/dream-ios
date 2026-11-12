@@ -36,7 +36,9 @@ New portraits use **Visual Grammar 1.0 / ink renderer 2**: fourteen distinct pro
 
 [Gallery comparison](docs/visual-grammar/comparison.png) · [Fourteen families](docs/visual-grammar/all-families.png) · [Architecture and reproduction](docs/VISUAL_GRAMMAR.md) · [Artist references and art direction](docs/ART_DIRECTION.md) · [Verification record](docs/VISUAL_GRAMMAR_VALIDATION.md)
 
-`Sources/` contains the app. `Tests/` contains Swift Testing checks; `UITests/` contains XCTest UI checks. The shared Xcode scheme includes both test targets.
+[Code map and reading guide (Italian)](docs/CODE_MAP.md) and [complete Swift file index](docs/SWIFT_FILE_INDEX.md) explains each folder and the narrative-to-image pipeline.
+
+`Sources/` contains the app, organized into features, artwork, integrations and persistence. `Tests/` contains Swift Testing checks; `UITests/` contains XCTest UI checks. The shared Xcode scheme includes both test targets.
 
 ## Validation
 
