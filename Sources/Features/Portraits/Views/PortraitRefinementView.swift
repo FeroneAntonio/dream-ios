@@ -73,12 +73,12 @@ struct PortraitRefinementView: View {
     let recipe: DreamVisualRecipe
     if !recreate, let existing = entry.visualRecipe {
       var upgraded = existing
-      if (upgraded.rendererVersion ?? 1) < 2 {
-        upgraded.rendererVersion = 2
+      if (upgraded.rendererVersion ?? 1) < 3 {
+        upgraded.rendererVersion = 3
         upgraded.decisions.append(
           VisualDecision(
             ruleID: "renderer-upgrade", source: .userChoice,
-            detail: "You chose a new ink-and-graphite study of this story."))
+            detail: "You chose a new expressive etching study of this story."))
       }
       recipe = upgraded
     } else {

@@ -103,6 +103,12 @@
 				"DF1FF5518721B25F93FFF269",
 				"29F3A032F90CEC74AF468CE7",
 				"13FA0148230F56B78F2513BB",
+				"90A1B6853441C1B842610190",
+				"777475A50F75CF94751CDE5C",
+				"27A7AB47540FE89853CC73A9",
+				"7FA0911E8CBE742736119562",
+				"2FD0120D65981CD40348B79C",
+				"6A892FDFD58F1813E695C166",
 				"548598249C6FD14092DBFA09",
 				"2E99A0FC686A3436CFD2C11E",
 				"2B08DE0C2A295DAA690138C4",
@@ -128,6 +134,7 @@
 				"48351D0179528AD5CDB4B215",
 				"2137DBBBEFC124D77D903B79",
 				"0DB19838BF5A8026B0D6BAEC",
+				"9D0ED85CB2B888C98C46E062",
 				"FE3BC2A1097B16229E95A3F7",
 				"D3BA6F276963B4C57545A1F5",
 				"496B9E0E7229649FB31071B9",
@@ -230,8 +237,10 @@
 				"E8F8B20EB5D4C9BA2BE31C5D",
 				"046D72F451791EBC4766C0E0",
 				"42EB1F625265A1FAE9A46A36",
+				"C56553E312D84A03CEE5ED5D",
 				"B21DFD1F78E900C3C50C88D2",
 				"E8C3D44CA29199EE2356DE00",
+				"1CEF484504136BED5DA8C957",
 			);
 			"isa" = "PBXResourcesBuildPhase";
 			"runOnlyForDeploymentPostprocessing" = "0";
@@ -288,13 +297,13 @@
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CODE_SIGN_ENTITLEMENTS" = "DREAM.entitlements";
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "10";
+				"CURRENT_PROJECT_VERSION" = "11";
 				"DEVELOPMENT_TEAM" = "7DGMUAKHBF";
 				"ENABLE_TESTABILITY" = "YES";
 				"GENERATE_INFOPLIST_FILE" = "NO";
 				"INFOPLIST_FILE" = "Info.plist";
 				"IPHONEOS_DEPLOYMENT_TARGET" = "27.0";
-				"MARKETING_VERSION" = "0.5";
+				"MARKETING_VERSION" = "0.6";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "it.rowtech.dream.prototype";
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"SDKROOT" = "iphoneos";
@@ -313,13 +322,13 @@
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CODE_SIGN_ENTITLEMENTS" = "DREAM.entitlements";
 				"CODE_SIGN_STYLE" = "Automatic";
-				"CURRENT_PROJECT_VERSION" = "10";
+				"CURRENT_PROJECT_VERSION" = "11";
 				"DEVELOPMENT_TEAM" = "7DGMUAKHBF";
 				"ENABLE_TESTABILITY" = "YES";
 				"GENERATE_INFOPLIST_FILE" = "NO";
 				"INFOPLIST_FILE" = "Info.plist";
 				"IPHONEOS_DEPLOYMENT_TARGET" = "27.0";
-				"MARKETING_VERSION" = "0.5";
+				"MARKETING_VERSION" = "0.6";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "it.rowtech.dream.prototype";
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"SDKROOT" = "iphoneos";
@@ -370,6 +379,7 @@
 		"000000000000000000000BBA" = {
 			"buildActionMask" = "2147483647";
 			"files" = (
+				"AD01A735B6D90A6D0F4BD0A2",
 				"C549A57241330251FDCBC739",
 				"F67B2641807B6DF1370789FF",
 				"919E0DF43A3CD68725C3A708",
@@ -677,6 +687,12 @@
 			"path" = "DreamApp.swift";
 			"sourceTree" = "<group>";
 		};
+		"11E97A1219D6BF9EDB3A8281" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometryTests.swift";
+			"sourceTree" = "<group>";
+		};
 		"121BB60E85DEE453365B9ECD" = {
 			"children" = (
 				"E46FE2CE1E8D6A2EC5303C8A",
@@ -755,6 +771,7 @@
 		};
 		"1B0B97DC3DDD8F074B4CEA53" = {
 			"children" = (
+				"6C3660909E6E557613E36A02",
 				"B1CF4CAC5500DBB82643CAD7",
 				"932FEFF18F0963D3E99D5FDE",
 				"59954A52C4DFFE833BE3C855",
@@ -764,15 +781,31 @@
 			"path" = "Sources/Artwork/Geometry";
 			"sourceTree" = "SOURCE_ROOT";
 		};
+		"1B2955E5E8373C90329E5761" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry+Architecture.swift";
+			"sourceTree" = "<group>";
+		};
 		"1B29F847DB606A1B12DF124D" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "VisualDecision.swift";
 			"sourceTree" = "<group>";
 		};
+		"1CEF484504136BED5DA8C957" = {
+			"fileRef" = "CAB0677BC3ACBF5B0F57179E";
+			"isa" = "PBXBuildFile";
+		};
 		"1E3F1D4B8F50A3FE84AD7A05" = {
 			"fileRef" = "F5625085D88D5B95014856E1";
 			"isa" = "PBXBuildFile";
+		};
+		"1F04E53AAAAE0D5B72976F86" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "PaletteRecipe+Etching.swift";
+			"sourceTree" = "<group>";
 		};
 		"1F24340D7181EE3FB0990C15" = {
 			"fileRef" = "9BA238DB2650B3F41FF3C805";
@@ -834,6 +867,12 @@
 			"path" = "VisualDirection.swift";
 			"sourceTree" = "<group>";
 		};
+		"272F6FA3F7E2CEC0E948C83B" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry+Knots.swift";
+			"sourceTree" = "<group>";
+		};
 		"2759492207A851A91CE1F77B" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -842,6 +881,10 @@
 		};
 		"277F67C20D20E920598B8C03" = {
 			"fileRef" = "CA455127DC63CF20705E9456";
+			"isa" = "PBXBuildFile";
+		};
+		"27A7AB47540FE89853CC73A9" = {
+			"fileRef" = "5390F43D4CCA16A6CCFFD25B";
 			"isa" = "PBXBuildFile";
 		};
 		"2918C11D1C7C7B28744C0FB1" = {
@@ -923,6 +966,10 @@
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "DreamBERTTokens.swift";
 			"sourceTree" = "<group>";
+		};
+		"2FD0120D65981CD40348B79C" = {
+			"fileRef" = "272F6FA3F7E2CEC0E948C83B";
+			"isa" = "PBXBuildFile";
 		};
 		"308482BDD7BF52FBB3B01891" = {
 			"isa" = "PBXFileReference";
@@ -1218,6 +1265,12 @@
 			"path" = "SLAMSSReport.swift";
 			"sourceTree" = "<group>";
 		};
+		"5390F43D4CCA16A6CCFFD25B" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry+Fields.swift";
+			"sourceTree" = "<group>";
+		};
 		"548598249C6FD14092DBFA09" = {
 			"fileRef" = "52A8E1C7662BB0F57356C5B6";
 			"isa" = "PBXBuildFile";
@@ -1280,8 +1333,10 @@
 		};
 		"5D80E9B88DF7DDB7AD0A4059" = {
 			"children" = (
+				"F39E6411D5D6F08EEF9B33D9",
 				"3EAA3F8303C7C9256FA3D2BE",
 				"2C93666368F4C6AB41BBEAD9",
+				"CAB0677BC3ACBF5B0F57179E",
 			);
 			"isa" = "PBXGroup";
 			"name" = "Fixtures";
@@ -1382,6 +1437,10 @@
 			"fileRef" = "15CDAE0FD005014667B0886F";
 			"isa" = "PBXBuildFile";
 		};
+		"6A892FDFD58F1813E695C166" = {
+			"fileRef" = "92FA4440F05F4C9A4D8E8119";
+			"isa" = "PBXBuildFile";
+		};
 		"6B2905656F6E15AE10EC7661" = {
 			"children" = (
 				"31A0CAA760A9BD4592297FEF",
@@ -1394,6 +1453,20 @@
 		"6B61524A79311DF46C14F22B" = {
 			"fileRef" = "C26DEBAD5962E00015C48D5F";
 			"isa" = "PBXBuildFile";
+		};
+		"6C3660909E6E557613E36A02" = {
+			"children" = (
+				"1B2955E5E8373C90329E5761",
+				"D6C757EFEA5DEBE621CEA0AC",
+				"5390F43D4CCA16A6CCFFD25B",
+				"6DE5AEF3B0FBC537185B31FC",
+				"272F6FA3F7E2CEC0E948C83B",
+				"92FA4440F05F4C9A4D8E8119",
+			);
+			"isa" = "PBXGroup";
+			"name" = "Etching";
+			"path" = "Sources/Artwork/Geometry/Etching";
+			"sourceTree" = "SOURCE_ROOT";
 		};
 		"6D2A34C55C816CDDE1F0BBD1" = {
 			"fileRef" = "B72959DC45570602FA337311";
@@ -1411,6 +1484,12 @@
 			"name" = "Tests";
 			"path" = "Tests";
 			"sourceTree" = "SOURCE_ROOT";
+		};
+		"6DE5AEF3B0FBC537185B31FC" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry+Gestures.swift";
+			"sourceTree" = "<group>";
 		};
 		"6E567FEEF4A8CF7AA8DDB82B" = {
 			"fileRef" = "80F1F0C0B3FEFE452DDEB84B";
@@ -1455,6 +1534,10 @@
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "SleepInterval.swift";
 			"sourceTree" = "<group>";
+		};
+		"777475A50F75CF94751CDE5C" = {
+			"fileRef" = "D6C757EFEA5DEBE621CEA0AC";
+			"isa" = "PBXBuildFile";
 		};
 		"782604D8DBAB6147C05324E4" = {
 			"children" = (
@@ -1527,6 +1610,10 @@
 			"path" = "Sources/Features/Capture";
 			"sourceTree" = "SOURCE_ROOT";
 		};
+		"7FA0911E8CBE742736119562" = {
+			"fileRef" = "6DE5AEF3B0FBC537185B31FC";
+			"isa" = "PBXBuildFile";
+		};
 		"80F1F0C0B3FEFE452DDEB84B" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -1561,6 +1648,7 @@
 		};
 		"854669147B10B02038A40B71" = {
 			"children" = (
+				"11E97A1219D6BF9EDB3A8281",
 				"3BB47AB05154A2B563B5C649",
 				"D664F1855A80177F92D856E5",
 			);
@@ -1640,6 +1728,10 @@
 			"path" = "SleepTimeline.swift";
 			"sourceTree" = "<group>";
 		};
+		"90A1B6853441C1B842610190" = {
+			"fileRef" = "1B2955E5E8373C90329E5761";
+			"isa" = "PBXBuildFile";
+		};
 		"919E0DF43A3CD68725C3A708" = {
 			"fileRef" = "31A0CAA760A9BD4592297FEF";
 			"isa" = "PBXBuildFile";
@@ -1663,6 +1755,12 @@
 		"92C97ADB463BB0304B694A33" = {
 			"fileRef" = "5CC048D3F9070693E7AA8D46";
 			"isa" = "PBXBuildFile";
+		};
+		"92FA4440F05F4C9A4D8E8119" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry.swift";
+			"sourceTree" = "<group>";
 		};
 		"9304C6BC45E50F398F810A39" = {
 			"children" = (
@@ -1738,6 +1836,10 @@
 		};
 		"9C4C558EB3B59D541BB1D71F" = {
 			"fileRef" = "B339B4C5CD7C366F7C6D8473";
+			"isa" = "PBXBuildFile";
+		};
+		"9D0ED85CB2B888C98C46E062" = {
+			"fileRef" = "1F04E53AAAAE0D5B72976F86";
 			"isa" = "PBXBuildFile";
 		};
 		"9E0D2261EAB30CA59D43E433" = {
@@ -1883,6 +1985,10 @@
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "DreamVoice.swift";
 			"sourceTree" = "<group>";
+		};
+		"AD01A735B6D90A6D0F4BD0A2" = {
+			"fileRef" = "11E97A1219D6BF9EDB3A8281";
+			"isa" = "PBXBuildFile";
 		};
 		"AE68712D07301A3544A1DE88" = {
 			"fileRef" = "52F07496E88E53A9905AF9C7";
@@ -2062,6 +2168,10 @@
 			"fileRef" = "3BB47AB05154A2B563B5C649";
 			"isa" = "PBXBuildFile";
 		};
+		"C56553E312D84A03CEE5ED5D" = {
+			"fileRef" = "F39E6411D5D6F08EEF9B33D9";
+			"isa" = "PBXBuildFile";
+		};
 		"C5BC6B07CB895340090194C4" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -2078,6 +2188,7 @@
 				"D9E5B76B6E247BD459F6EB1C",
 				"492727B45E9DBC75AD467C04",
 				"E0801315D661A6992BD8CBCF",
+				"1F04E53AAAAE0D5B72976F86",
 				"BACED09518F47F2D1CFDF818",
 				"662E13C91B61A7C09CB6FEC5",
 				"1B29F847DB606A1B12DF124D",
@@ -2114,6 +2225,12 @@
 		"CA51BBEBAD98076B9FAFA155" = {
 			"fileRef" = "AA945449593C28F6EC8D482E";
 			"isa" = "PBXBuildFile";
+		};
+		"CAB0677BC3ACBF5B0F57179E" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.json";
+			"path" = "visual-recipe-v2.json";
+			"sourceTree" = "<group>";
 		};
 		"CBCA34D8DB1A540B90A50D8A" = {
 			"fileRef" = "32FC2560688FBEEA005DD8D3";
@@ -2166,6 +2283,12 @@
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "VisualPersistenceTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"D6C757EFEA5DEBE621CEA0AC" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "EtchingGeometry+Atmospheres.swift";
 			"sourceTree" = "<group>";
 		};
 		"D7D05815F340166ADF2CB4EA" = {
@@ -2316,6 +2439,12 @@
 		"F2D85DB0848CBC0FBAC4E138" = {
 			"fileRef" = "883C34660341E013DB13FB3F";
 			"isa" = "PBXBuildFile";
+		};
+		"F39E6411D5D6F08EEF9B33D9" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.json";
+			"path" = "creative_atlas.json";
+			"sourceTree" = "<group>";
 		};
 		"F3BEBBF3B8E0E5B339E4CD97" = {
 			"fileRef" = "74019E2205E075EDE9DF9E21";

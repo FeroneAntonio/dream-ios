@@ -19,7 +19,7 @@ struct NarrativeVisualAnalyzer {
       ),
       (
         .doors,
-        #"\b(?:(?:one|two|three|four|five|six|seven|eight|[1-8]) )?(?:doors?|rooms?|corridor)\b"#
+        #"\b(?:(?:one|two|three|four|five|six|seven|eight|[1-8]) )?(?:doors?|rooms?|corridor|archways?|thresholds?)\b"#
       ),
       (.crowd, #"\b(?:crowd|crowded|hundreds|rain|many small)\b"#),
       (
@@ -27,14 +27,17 @@ struct NarrativeVisualAnalyzer {
         #"\b(?:my mother|my father|my friend|my sister|my brother|with friends|someone reached out)\b"#
       ),
       (.rising, #"\b(?:rose to the surface|rising|climbed|climbing|flew upward)\b"#),
-      (.drifting, #"\b(?:walking|swimming|drifting|floating)\b"#),
+      (.drifting, #"\b(?:walking|swimming|drifting|floating|flowing|river|waves|ocean current)\b"#),
       (.falling, #"\b(?:falling|fell|sinking|being dragged)\b"#),
       (.rescue, #"\b(?:caught me|rescued me|felt safe|held my hand)\b"#),
       (.bending, #"\b(?:bent sideways|kept bending|bending|parallel|warped|wavy)\b"#),
-      (.fracture, #"\b(?:broke into small pieces|shattered|broke apart|fragmented)\b"#),
+      (
+        .fracture,
+        #"\b(?:broke into small pieces|shattered|broke apart|fragmented|cracked glass|shards)\b"#
+      ),
       (
         .repetition,
-        #"\b(?:back to the same quiet room|back to the same|over and over|kept returning|again and again|endless|never ended)\b"#
+        #"\b(?:back to the same quiet room|back to the same|over and over|kept returning|again and again|endless|never ended|repeating|repeated)\b"#
       ),
       (.light, #"\b(?:distant light|sunlight|light|glow)\b"#),
       (
@@ -42,7 +45,7 @@ struct NarrativeVisualAnalyzer {
         #"\b(?:empty(?:, quiet)? space|nothing else was there|nothing was there|completely alone)\b"#
       ),
       (.blurred, #"\b(?:blurry|blurred|hazy|vague|indistinct)\b"#),
-      (.rotation, #"\b(?:spinning|rotating|in circles|turning around)\b"#),
+      (.rotation, #"\b(?:spinning|rotating|in circles|turning around|whirlpool|vortex|spiral)\b"#),
       (.simultaneous, #"\b(?:two voices|at once|simultaneously)\b"#),
       (.sceneChange, #"\b(?:then|suddenly|changed into|another place)\b"#),
       (.directions, #"\b(?:many directions|rays|converging|diverging)\b"#),

@@ -32,9 +32,9 @@ Use a physical iPhone for microphone, speech, Apple Intelligence and HealthKit c
 - **HealthKit** for optional sleep and sampled heart-rate context associated with an entry.
 - Private local JSON persistence for the journal and draft, with atomic writes and complete iOS file protection.
 
-New portraits use **Visual Grammar 1.0 / ink renderer 2**: fourteen distinct procedural families, narrative evidence, frozen recipes/seeds, pressure-varied ink and graphite hatching and **Why this drawing?**. A small **Refine portrait** preview lets the person adjust intensity/colors or explore another arrangement before confirming. Editing the story preserves the saved image until an explicit recreation. Old entries keep their legacy renderer. New V1 prints and exports are static and independent of sampled heart rate.
+New portraits use **Visual Grammar 1.0 / etching renderer 3**: expressive seeded gestures, toroidal knots, ink-deposition fields, displaced contours, organic cut masses, five print stocks, and fourteen distinct procedural families, narrative evidence, frozen recipes/seeds, pressure-varied ink and graphite hatching and **Why this drawing?**. A small **Refine portrait** preview lets the person adjust intensity/colors or explore another arrangement before confirming. Editing the story preserves the saved image until an explicit recreation. Old entries keep their legacy renderer. New V1 prints and exports are static and independent of sampled heart rate.
 
-[Gallery comparison](docs/visual-grammar/comparison.png) · [Fourteen families](docs/visual-grammar/all-families.png) · [Architecture and reproduction](docs/VISUAL_GRAMMAR.md) · [Artist references and art direction](docs/ART_DIRECTION.md) · [Verification record](docs/VISUAL_GRAMMAR_VALIDATION.md)
+[432-study creative atlas: reproduction and scope](docs/CREATIVE_ATLAS.md) · [Gallery comparison](docs/visual-grammar/comparison.png) · [Fourteen families](docs/visual-grammar/all-families.png) · [Architecture and reproduction](docs/VISUAL_GRAMMAR.md) · [Artist references and art direction](docs/ART_DIRECTION.md) · [Verification record](docs/VISUAL_GRAMMAR_VALIDATION.md)
 
 [Code map and reading guide (Italian)](docs/CODE_MAP.md) and [complete Swift file index](docs/SWIFT_FILE_INDEX.md) explains each folder and the narrative-to-image pipeline.
 
@@ -42,7 +42,9 @@ New portraits use **Visual Grammar 1.0 / ink renderer 2**: fourteen distinct pro
 
 ## Validation
 
-Version 0.5 passed **36 Swift Testing methods** (including 14 parameterized family cases), **5 UI tests**, and the unchanged SLAMSS adapter's **3 Python tests**. Coverage includes old data/voice regression, deterministic pixel rendering, safe persistence, narrative evidence, refinement confirmation/cancellation, reopening and largest Dynamic Type.
+Version **0.6 / build 11** adds the 432-study atlas and passed **43 Swift test methods** plus **5 isolated UI tests**. Forty fictional reports rendered successfully on iPhone 17 at 1080 px; saved renderer-1/2 prints retain their original engines. [Current art/verification details](docs/CREATIVE_ATLAS.md).
+
+The previous 0.5 version passed **36 Swift Testing methods** (including 14 parameterized family cases), **5 UI tests**, and the unchanged SLAMSS adapter's **3 Python tests**. Coverage includes old data/voice regression, deterministic pixel rendering, safe persistence, narrative evidence, refinement confirmation/cancellation, reopening and largest Dynamic Type.
 
 The signed app was installed and opened on a physical **iPhone 17 / iOS 27.2**. The first renderer-1 baseline produced eight synthetic 1080 px exports in approximately **25–82 ms each** in one Debug pass. The final renderer-2 ink/graphite run took approximately **26–96 ms per export**, with a successful full fictional interpretation in about **8.3 seconds**. These are single Debug passes. A fictional full interpretation also completed with DReAMy and Apple Intelligence. These are functional/elapsed-time checks, not repeated performance, peak-memory or psychological validation. The live-microphone user acceptance check, broader accessibility/device coverage and creative refinement remain to do. See the verification record for the actual commands and limitations.
 

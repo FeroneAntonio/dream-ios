@@ -2,7 +2,7 @@
 
 Questa guida spiega dove cercare e in quale ordine leggere il progetto. Le cartelle sono reali sul disco e rispecchiate nei gruppi di Xcode. L'app resta un solo target: non ci sono pacchetti o livelli di astrazione aggiunti per organizzare i file.
 
-[Indice di tutti i 117 sorgenti Swift](SWIFT_FILE_INDEX.md): file e responsabilita.
+[Indice di tutti i 124 sorgenti Swift](SWIFT_FILE_INDEX.md): file e responsabilita.
 
 ## Le cartelle principali
 
@@ -31,7 +31,8 @@ Sources/
     Geometry/
       FamilyGeometry.swift   Trasformazioni e selezione della famiglia
       Families/           Un algoritmo per ciascuna delle 14 famiglie
-      Ink/                Geometrie a penna, pressione e tratteggio
+      Ink/                Resa storica a penna, pressione e tratteggio
+      Etching/            Nuove composizioni, nodi, contorni e depositi di inchiostro
     Random/               Casuale riproducibile e rumore coerente
     Rendering/            Segni normalizzati -> pixel -> PNG
   Integrations/
@@ -67,10 +68,10 @@ scripts/                  Aggiornamento progetto, modello e galleria
 | --- | --- |
 | Quali parole vengono riconosciute | `Artwork/Analysis/NarrativeVisualAnalyzer.swift` |
 | Quale geometria viene scelta | `Artwork/Composition/VisualRuleEngine.swift` |
-| I tre sentieri a penna | `Artwork/Geometry/Ink/HandDrawnGeometry.swift` |
-| Le porte impossibili | `Artwork/Geometry/Ink/HandDrawnGeometry+ThresholdRooms.swift` |
-| Le forme collegate | `Artwork/Geometry/Ink/HandDrawnGeometry+ConstellationGraph.swift` |
-| Le onde di movimento | `Artwork/Geometry/Families/FamilyGeometry+FlowField.swift` |
+| I tre sentieri a penna | `Artwork/Geometry/Etching/EtchingGeometry+Gestures.swift` |
+| Le porte impossibili | `Artwork/Geometry/Etching/EtchingGeometry+Architecture.swift` |
+| Le forme collegate | `Artwork/Geometry/Etching/EtchingGeometry+Gestures.swift` |
+| Le onde di movimento | `Artwork/Geometry/Etching/EtchingGeometry+Fields.swift` |
 | Spessore, pressione e ripassi | `Artwork/Geometry/Ink/HandDrawnRenderer.swift` |
 | Il tratteggio interno | `Artwork/Geometry/Ink/HandDrawnRenderer+Hatching.swift` |
 | I colori disponibili | `Artwork/Models/PaletteRecipe.swift` |

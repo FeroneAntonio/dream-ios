@@ -248,3 +248,16 @@ Percorsi relativi a `Sources/`. Ogni riga indica la responsabilita del file. Per
 | File | Responsabilita |
 | --- | --- |
 | [DreamcatcherMark.swift](../Sources/Shared/Views/DreamcatcherMark.swift) | Segno grafico condiviso. |
+
+## Artwork/Geometry/Etching - renderer 3
+
+| File | Responsabilita |
+| --- | --- |
+| [EtchingGeometry+Architecture.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry+Architecture.swift) | Portali, raggi, frammenti Voronoi e collage. |
+| [EtchingGeometry+Atmospheres.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry+Atmospheres.swift) | Particelle, spazio negativo e immagini indefinite. |
+| [EtchingGeometry+Fields.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry+Fields.swift) | Correnti direzionali, bande e interferenze. |
+| [EtchingGeometry+Gestures.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry+Gestures.swift) | Ramificazioni, connessioni, contorni ripetuti e spirali. |
+| [EtchingGeometry+Knots.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry+Knots.swift) | Intrecci toroidali e campi di inchiostro generati da attrattori. |
+| [EtchingGeometry.swift](../Sources/Artwork/Geometry/Etching/EtchingGeometry.swift) | Selezione degli studi, coordinate, volumi e nastri di Bezier. |
+
+`Artwork/Models/PaletteRecipe+Etching.swift`: carte e inchiostri delle nuove stampe.

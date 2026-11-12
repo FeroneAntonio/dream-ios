@@ -15,7 +15,10 @@
       let folder = URL.documentsDirectory.appending(
         path: "visual-grammar-qa", directoryHint: .isDirectory)
       do {
-        guard let source = Bundle.main.url(forResource: "fictional_dreams", withExtension: "json")
+        let resource =
+          ProcessInfo.processInfo.arguments.contains("--verify-creative-atlas")
+          ? "creative_atlas" : "fictional_dreams"
+        guard let source = Bundle.main.url(forResource: resource, withExtension: "json")
         else { return }
         let fixtures = try JSONDecoder().decode(Fixtures.self, from: Data(contentsOf: source))
         try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
@@ -36,7 +39,8 @@
         }
         let report: [String: Any] = [
           "status": "complete", "synthetic": true, "pixels": 1080, "grammarVersion": 1,
-          "rendererVersion": 2,
+          "rendererVersion": 3,
+          "build": Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "",
           "systemVersion": ProcessInfo.processInfo.operatingSystemVersionString,
           "measurements": measurements,
           "note":

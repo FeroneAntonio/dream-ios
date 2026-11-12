@@ -1,0 +1,206 @@
+{
+  "synthetic": true,
+  "description": "Forty fictional reports for the 320 narrative-led studies. Seeds vary eight times per report. Fourteen-family technical studies are labeled separately.",
+  "dreams": [
+    {
+      "id": "S01",
+      "text": "I was walking in a forest when the path split into three. I could see each direction clearly.",
+      "seed": 12001
+    },
+    {
+      "id": "S02",
+      "text": "I opened seven doors, but every door took me back to the same quiet room.",
+      "seed": 19920
+    },
+    {
+      "id": "S03",
+      "text": "I was talking to my mother in a crowd that kept growing larger. I could still see her clearly.",
+      "seed": 27839
+    },
+    {
+      "id": "S04",
+      "text": "I was swimming under dark water. Then I rose to the surface and saw warm sunlight everywhere.",
+      "seed": 35758
+    },
+    {
+      "id": "S05",
+      "text": "I was falling from a tower and felt afraid. Someone reached out and caught me. Then I felt safe.",
+      "seed": 43677
+    },
+    {
+      "id": "S06",
+      "text": "The streets of a city bent sideways around me, then the buildings broke into small pieces.",
+      "seed": 51596
+    },
+    {
+      "id": "S07",
+      "text": "I climbed a staircase that never ended. Each landing looked exactly like the one before it, over and over.",
+      "seed": 59515
+    },
+    {
+      "id": "S08",
+      "text": "I only remember a distant light inside a large empty, quiet space. Nothing else was there.",
+      "seed": 67434
+    },
+    {
+      "id": "S09",
+      "text": "The ceiling was spinning above a table. Its circular motion slowed, but the room stayed sharply visible.",
+      "seed": 75353
+    },
+    {
+      "id": "S10",
+      "text": "I heard two voices simultaneously, each speaking a different sentence. Neither voice became louder than the other.",
+      "seed": 83272
+    },
+    {
+      "id": "S11",
+      "text": "Thin rays extended in many directions from the middle of a silent courtyard.",
+      "seed": 91191
+    },
+    {
+      "id": "S12",
+      "text": "A red landscape suddenly changed into a pale interior. The two places remained visible like overlapping sheets.",
+      "seed": 99110
+    },
+    {
+      "id": "S13",
+      "text": "The memory was blurry and hazy. I could remember its soft edges but no object clearly.",
+      "seed": 107029
+    },
+    {
+      "id": "S14",
+      "text": "A glass bridge shattered into separate pieces. The gaps between the pieces kept growing.",
+      "seed": 114948
+    },
+    {
+      "id": "S15",
+      "text": "A crowd filled the platform. I remained still as small groups separated and gathered again.",
+      "seed": 122867
+    },
+    {
+      "id": "S16",
+      "text": "My sister stood on the other side of a wide space. A narrow ribbon connected our hands.",
+      "seed": 130786
+    },
+    {
+      "id": "S17",
+      "text": "Two doors faced each other in a long corridor. Each opening had a different depth.",
+      "seed": 138705
+    },
+    {
+      "id": "S18",
+      "text": "I was drifting across a river under a pale sky. The current widened and narrowed around me.",
+      "seed": 146624
+    },
+    {
+      "id": "S19",
+      "text": "The road divided into two beside a small lake. One route curved closely around the other.",
+      "seed": 154543
+    },
+    {
+      "id": "S20",
+      "text": "The path branched into four on a steep hillside. I could see all four routes at once.",
+      "seed": 162462
+    },
+    {
+      "id": "S21",
+      "text": "The road split into five among tall walls. A distant light stayed visible beyond the junction.",
+      "seed": 170381
+    },
+    {
+      "id": "S22",
+      "text": "The path split into three. Beyond one turn I could see cracked glass, and behind another a crowd stood quietly.",
+      "seed": 178300
+    },
+    {
+      "id": "S23",
+      "text": "I passed through six archways. The openings changed their angle as I approached the far wall.",
+      "seed": 186219
+    },
+    {
+      "id": "S24",
+      "text": "A corridor bent sideways. The doorframes leaned together without breaking.",
+      "seed": 194138
+    },
+    {
+      "id": "S25",
+      "text": "I was falling between soft curtains. There was no floor visible and no one reached toward me.",
+      "seed": 202057
+    },
+    {
+      "id": "S26",
+      "text": "I climbed a bright shaft toward sunlight. The narrow opening widened as I rose.",
+      "seed": 209976
+    },
+    {
+      "id": "S27",
+      "text": "I was swimming through a dark room. Waves crossed the space while the walls remained in place.",
+      "seed": 217895
+    },
+    {
+      "id": "S28",
+      "text": "I saw a whirlpool surrounded by small shards. Its edge stayed clear while its center kept turning.",
+      "seed": 225814
+    },
+    {
+      "id": "S29",
+      "text": "A spiral hung in an empty, quiet space. One edge caught a distant light.",
+      "seed": 233733
+    },
+    {
+      "id": "S30",
+      "text": "The same shape appeared again and again across a folded sheet. Each repetition moved a little farther away.",
+      "seed": 241652
+    },
+    {
+      "id": "S31",
+      "text": "An endless corridor opened through seven doors. I kept returning to the same pale starting point.",
+      "seed": 249571
+    },
+    {
+      "id": "S32",
+      "text": "My friend stood near me while a crowd gathered far away. Two voices were heard simultaneously above us.",
+      "seed": 257490
+    },
+    {
+      "id": "S33",
+      "text": "I found nothing else was there. A distant light appeared at the edge of the open space.",
+      "seed": 265409
+    },
+    {
+      "id": "S34",
+      "text": "I was completely alone in an empty space. There was no light and no movement.",
+      "seed": 273328
+    },
+    {
+      "id": "S35",
+      "text": "The parallel streets became wavy. Their lines crossed a surface that broke into small pieces.",
+      "seed": 281247
+    },
+    {
+      "id": "S36",
+      "text": "Rain filled a narrow square. Every drop seemed suspended, with small gaps between groups.",
+      "seed": 289166
+    },
+    {
+      "id": "S37",
+      "text": "My father waited across an open field. He held my hand for a moment before the scene became indistinct.",
+      "seed": 297085
+    },
+    {
+      "id": "S38",
+      "text": "An indistinct purple shape suddenly changed into another place. The edges stayed blurred throughout.",
+      "seed": 305004
+    },
+    {
+      "id": "S39",
+      "text": "Two voices sounded at once as a vortex turned between them. The rhythms overlapped without merging.",
+      "seed": 312923
+    },
+    {
+      "id": "S40",
+      "text": "There were rays converging toward a narrow gap. Beyond it I saw a repeating outline.",
+      "seed": 320842
+    }
+  ]
+}

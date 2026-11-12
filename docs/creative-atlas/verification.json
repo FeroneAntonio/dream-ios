@@ -1,0 +1,20 @@
+{
+  "prints": 432,
+  "fictionalReports": 40,
+  "narrativePrints": 320,
+  "technicalPrints": 112,
+  "uniquePlans": 432,
+  "uniqueDecodedImages": 432,
+  "maxMarks": 16445,
+  "maxPoints": 68097,
+  "iphone17SingleDebugPass": {
+    "reports": 40,
+    "pixels": 1080,
+    "minMs": 25.111749999999997,
+    "medianMs": 46.685271,
+    "maxMs": 89.616208
+  },
+  "limitations": "Distinct hashes are not a measure of artistic quality. Device durations are one debug pass, not distributions or memory/frame-rate profiling.",
+  "swiftTestMethodsPassed": 43,
+  "uiTestsPassed": 5
+}

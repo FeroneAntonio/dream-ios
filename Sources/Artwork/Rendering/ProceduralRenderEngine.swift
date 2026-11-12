@@ -5,7 +5,7 @@ import Foundation
 struct ProceduralRenderEngine {
   static func makePlan(recipe: DreamVisualRecipe) throws -> RenderPlan {
     guard recipe.isValid else { throw CocoaError(.coderInvalidValue) }
-    if recipe.rendererVersion == 2 { return try HandDrawnRenderer.makePlan(recipe: recipe) }
+    if (recipe.rendererVersion ?? 1) >= 2 { return try HandDrawnRenderer.makePlan(recipe: recipe) }
     return try makeBasePlan(recipe: recipe)
   }
   static func makeBasePlan(recipe: DreamVisualRecipe, pen: Bool = false) throws -> RenderPlan {
@@ -16,7 +16,10 @@ struct ProceduralRenderEngine {
       + recipe.layers.filter({ $0.role == .primary })
     {
       var generator = FamilyGeometry(recipe: recipe, layer: layer)
-      if pen {
+      if recipe.rendererVersion == 3 {
+        var etching = EtchingGeometry(recipe: recipe, layer: layer)
+        marks += etching.make()
+      } else if pen {
         switch layer.family {
         case .branchingPaths: marks += HandDrawnGeometry.branching(recipe: recipe, layer: layer)
         case .thresholdRooms: marks += HandDrawnGeometry.rooms(recipe: recipe, layer: layer)

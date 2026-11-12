@@ -1,0 +1,292 @@
+{
+  "build" : "11",
+  "grammarVersion" : 1,
+  "measurements" : [
+    {
+      "bytes" : 474200,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.072241166 seconds",
+      "id" : "S01",
+      "seed" : 12001
+    },
+    {
+      "bytes" : 379285,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.036003459 seconds",
+      "id" : "S02",
+      "seed" : 19920
+    },
+    {
+      "bytes" : 529844,
+      "family" : "constellationGraph",
+      "geometryAndPNG" : "0.059053917 seconds",
+      "id" : "S03",
+      "seed" : 27839
+    },
+    {
+      "bytes" : 1132626,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.073702709 seconds",
+      "id" : "S04",
+      "seed" : 35758
+    },
+    {
+      "bytes" : 778847,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.063221959 seconds",
+      "id" : "S05",
+      "seed" : 43677
+    },
+    {
+      "bytes" : 1151022,
+      "family" : "warpedBands",
+      "geometryAndPNG" : "0.072444375 seconds",
+      "id" : "S06",
+      "seed" : 51596
+    },
+    {
+      "bytes" : 419448,
+      "family" : "nestedEchoes",
+      "geometryAndPNG" : "0.033093917 seconds",
+      "id" : "S07",
+      "seed" : 59515
+    },
+    {
+      "bytes" : 369262,
+      "family" : "negativeVoid",
+      "geometryAndPNG" : "0.027141041 seconds",
+      "id" : "S08",
+      "seed" : 67434
+    },
+    {
+      "bytes" : 499137,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.053525084 seconds",
+      "id" : "S09",
+      "seed" : 75353
+    },
+    {
+      "bytes" : 903346,
+      "family" : "interferenceWaves",
+      "geometryAndPNG" : "0.050362625 seconds",
+      "id" : "S10",
+      "seed" : 83272
+    },
+    {
+      "bytes" : 275829,
+      "family" : "angularRays",
+      "geometryAndPNG" : "0.025388542 seconds",
+      "id" : "S11",
+      "seed" : 91191
+    },
+    {
+      "bytes" : 934455,
+      "family" : "layeredCollage",
+      "geometryAndPNG" : "0.045498042 seconds",
+      "id" : "S12",
+      "seed" : 99110
+    },
+    {
+      "bytes" : 481311,
+      "family" : "chromaticHaze",
+      "geometryAndPNG" : "0.073182709 seconds",
+      "id" : "S13",
+      "seed" : 107029
+    },
+    {
+      "bytes" : 657404,
+      "family" : "fracturedCells",
+      "geometryAndPNG" : "0.03339 seconds",
+      "id" : "S14",
+      "seed" : 114948
+    },
+    {
+      "bytes" : 253597,
+      "family" : "particleField",
+      "geometryAndPNG" : "0.033295 seconds",
+      "id" : "S15",
+      "seed" : 122867
+    },
+    {
+      "bytes" : 479784,
+      "family" : "constellationGraph",
+      "geometryAndPNG" : "0.04210175 seconds",
+      "id" : "S16",
+      "seed" : 130786
+    },
+    {
+      "bytes" : 289436,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.02511175 seconds",
+      "id" : "S17",
+      "seed" : 138705
+    },
+    {
+      "bytes" : 749317,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.056813208 seconds",
+      "id" : "S18",
+      "seed" : 146624
+    },
+    {
+      "bytes" : 218035,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.025116875 seconds",
+      "id" : "S19",
+      "seed" : 154543
+    },
+    {
+      "bytes" : 506346,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.058431959 seconds",
+      "id" : "S20",
+      "seed" : 162462
+    },
+    {
+      "bytes" : 663998,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.081415458 seconds",
+      "id" : "S21",
+      "seed" : 170381
+    },
+    {
+      "bytes" : 518876,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.0596815 seconds",
+      "id" : "S22",
+      "seed" : 178300
+    },
+    {
+      "bytes" : 329925,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.027628875 seconds",
+      "id" : "S23",
+      "seed" : 186219
+    },
+    {
+      "bytes" : 1485460,
+      "family" : "warpedBands",
+      "geometryAndPNG" : "0.089616208 seconds",
+      "id" : "S24",
+      "seed" : 194138
+    },
+    {
+      "bytes" : 820115,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.067013542 seconds",
+      "id" : "S25",
+      "seed" : 202057
+    },
+    {
+      "bytes" : 951890,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.07647025 seconds",
+      "id" : "S26",
+      "seed" : 209976
+    },
+    {
+      "bytes" : 377748,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.028987833 seconds",
+      "id" : "S27",
+      "seed" : 217895
+    },
+    {
+      "bytes" : 949196,
+      "family" : "fracturedCells",
+      "geometryAndPNG" : "0.084121583 seconds",
+      "id" : "S28",
+      "seed" : 225814
+    },
+    {
+      "bytes" : 393260,
+      "family" : "negativeVoid",
+      "geometryAndPNG" : "0.028400708 seconds",
+      "id" : "S29",
+      "seed" : 233733
+    },
+    {
+      "bytes" : 627664,
+      "family" : "nestedEchoes",
+      "geometryAndPNG" : "0.04196025 seconds",
+      "id" : "S30",
+      "seed" : 241652
+    },
+    {
+      "bytes" : 394642,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.034038417 seconds",
+      "id" : "S31",
+      "seed" : 249571
+    },
+    {
+      "bytes" : 626649,
+      "family" : "constellationGraph",
+      "geometryAndPNG" : "0.051181 seconds",
+      "id" : "S32",
+      "seed" : 257490
+    },
+    {
+      "bytes" : 386824,
+      "family" : "negativeVoid",
+      "geometryAndPNG" : "0.027477333 seconds",
+      "id" : "S33",
+      "seed" : 265409
+    },
+    {
+      "bytes" : 360028,
+      "family" : "negativeVoid",
+      "geometryAndPNG" : "0.026774542 seconds",
+      "id" : "S34",
+      "seed" : 273328
+    },
+    {
+      "bytes" : 1256560,
+      "family" : "warpedBands",
+      "geometryAndPNG" : "0.08065725 seconds",
+      "id" : "S35",
+      "seed" : 281247
+    },
+    {
+      "bytes" : 225953,
+      "family" : "particleField",
+      "geometryAndPNG" : "0.0338255 seconds",
+      "id" : "S36",
+      "seed" : 289166
+    },
+    {
+      "bytes" : 542798,
+      "family" : "constellationGraph",
+      "geometryAndPNG" : "0.045500875 seconds",
+      "id" : "S37",
+      "seed" : 297085
+    },
+    {
+      "bytes" : 1111318,
+      "family" : "layeredCollage",
+      "geometryAndPNG" : "0.047869667 seconds",
+      "id" : "S38",
+      "seed" : 305004
+    },
+    {
+      "bytes" : 729351,
+      "family" : "spiralImprint",
+      "geometryAndPNG" : "0.06023925 seconds",
+      "id" : "S39",
+      "seed" : 312923
+    },
+    {
+      "bytes" : 556988,
+      "family" : "nestedEchoes",
+      "geometryAndPNG" : "0.043793041 seconds",
+      "id" : "S40",
+      "seed" : 320842
+    }
+  ],
+  "note" : "Cold or cached render duration; not frame cadence, peak memory or scientific model accuracy. No models or health data used.",
+  "pixels" : 1080,
+  "rendererVersion" : 3,
+  "status" : "complete",
+  "synthetic" : true,
+  "systemVersion" : "Version 27.2 (Build 24B119)"
+}

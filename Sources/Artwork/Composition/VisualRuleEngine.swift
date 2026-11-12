@@ -166,6 +166,24 @@ struct VisualRuleEngine {
             familyAffected: .chromaticHaze))
       }
     }
+    let supportingRules: [(NarrativeCueKind, VisualFamily, String)] = [
+      (
+        .rotation, .spiralImprint, "A smaller turning structure follows the rotation you described."
+      ),
+      (.fracture, .fracturedCells, "A broken surface follows the fragmentation in your report."),
+      (.crowd, .particleField, "A surrounding group of marks follows the multitude you described."),
+      (.light, .chromaticHaze, "A restrained wash follows the light you remembered."),
+      (.repetition, .nestedEchoes, "Repeated contours follow the recurrence in the report."),
+    ]
+    for (kind, family, explanation) in supportingRules {
+      guard secondary.count < 2, features.has(kind), primary.family != family,
+        !secondary.contains(where: { $0.family == family }),
+        !decisions.contains(where: { $0.ruleID == "narrative-\(kind.rawValue)" })
+      else { continue }
+      if primary.family == .negativeVoid { continue }
+      secondary.append(layer(family, x: 0.68, y: 0.40, scale: 0.44, opacity: 0.30))
+      reason(kind, family, explanation)
+    }
     let theme: VisualPalette
     switch primary.family {
     case .thresholdRooms, .nestedEchoes, .spiralImprint, .negativeVoid: theme = .inkPaper
@@ -182,6 +200,9 @@ struct VisualRuleEngine {
       palette: .make(
         theme, dark: primary.family == .negativeVoid),
       decisions: decisions)
+    if theme == .inkPaper {
+      recipe.palette = .etching(seed: seed, dark: primary.family == .negativeVoid)
+    }
     // Independent presence hints alter only minor print finish, never topology or hue.
     for emotion in DreamEmotion.allCases where emotionHints.contains(emotion) {
       switch emotion {
@@ -208,7 +229,7 @@ struct VisualRuleEngine {
           ruleID: "analysis-limit", source: .modelSuggestion,
           detail: "Language-model visual cues used only the beginning of this long report."))
     }
-    recipe.rendererVersion = 2
+    recipe.rendererVersion = 3
     recipe.decisions.append(
       VisualDecision(
         ruleID: "ink-graphite", source: .artisticRule,

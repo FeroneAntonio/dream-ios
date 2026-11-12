@@ -42,6 +42,10 @@ struct HandDrawnRenderer {
           marks.append(ghost)
         }
       case .polygon:
+        if recipe.rendererVersion == 3 && mark.color == recipe.palette.background {
+          marks.append(mark)
+          continue
+        }
         let detailedSurface = [.fracturedCells, .spiralImprint, .layeredCollage, .thresholdRooms]
           .contains(recipe.layers[0].family)
         var wash = mark
@@ -88,7 +92,8 @@ struct HandDrawnRenderer {
         marks.append(mark)
       }
     }
-    let plan = RenderPlan(rendererVersion: 2, background: base.background, marks: marks)
+    let plan = RenderPlan(
+      rendererVersion: recipe.rendererVersion ?? 2, background: base.background, marks: marks)
     guard plan.isFiniteAndBounded else { throw CocoaError(.coderInvalidValue) }
     return plan
   }

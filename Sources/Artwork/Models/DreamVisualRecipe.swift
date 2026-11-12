@@ -16,7 +16,7 @@ struct DreamVisualRecipe: Codable, Hashable, Sendable {
   var rendererVersion: Int?
 
   var isValid: Bool {
-    grammarVersion == 1 && (rendererVersion == nil || rendererVersion == 1 || rendererVersion == 2)
+    grammarVersion == 1 && (rendererVersion.map { (1...3).contains($0) } ?? true)
       && inputFingerprint.count == 64
       && inputFingerprint.utf8.allSatisfy { (48...57).contains($0) || (97...102).contains($0) }
       && (1...3).contains(layers.count) && layers.filter { $0.role == .primary }.count == 1
@@ -45,7 +45,7 @@ struct DreamVisualRecipe: Codable, Hashable, Sendable {
     let secondary = layers.filter { $0.role != .primary }.map { $0.family.label.lowercased() }
       .joined(separator: " and ")
     return
-      "Dream portrait. \(primary)\(secondary.isEmpty ? "" : ", with \(secondary)"). \(palette.name.label) colors.\(rendererVersion == 2 ? " Pressure-varied ink and graphite hatching." : "")"
+      "Dream portrait. \(primary)\(secondary.isEmpty ? "" : ", with \(secondary)"). \(palette.name.label) colors.\((rendererVersion ?? 1) >= 2 ? " Pressure-varied ink and graphite hatching." : "")"
   }
   var identity: String { Self.digest((try? Self.encoder.encode(self)) ?? Data()) }
   static var encoder: JSONEncoder {
