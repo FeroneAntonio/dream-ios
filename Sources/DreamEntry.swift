@@ -3,9 +3,17 @@ import Foundation
 struct DreamEntry: Codable, Identifiable, Hashable {
     var id = UUID()
     var date = Date.now
-    var text: String
-    var feeling: DreamFeeling
-    var intensity: Double
+    var text: String {
+        willSet {
+            if newValue != text { freezeLegacyPortraitIfNeeded() }
+        }
+    }
+    var feeling: DreamFeeling {
+        willSet { if newValue != feeling { freezeLegacyPortraitIfNeeded() } }
+    }
+    var intensity: Double {
+        willSet { if newValue != intensity { freezeLegacyPortraitIfNeeded() } }
+    }
     var reflection: String
     var question: String
     var usedAI: Bool
@@ -15,6 +23,9 @@ struct DreamEntry: Codable, Identifiable, Hashable {
     var audioFilename: String?
     var researchSleep: SLAMSSReport?
     var emotions: DreamEmotionAnalysis?
+    var visualRecipe: DreamVisualRecipe?
+    var legacyPortrait: LegacyPortrait?
+    var portraitSnapshot: String?
 
     var displayTitle: String {
         if let title, !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return title }

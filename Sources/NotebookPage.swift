@@ -13,13 +13,10 @@ struct NotebookPage: View {
                 }
                 .font(.custom("Noteworthy-Light", size: 17, relativeTo: .body))
                 .foregroundStyle(Color(red: 0.38, green: 0.35, blue: 0.31))
-                DreamCanvas(seed: entry.seed, feeling: entry.feeling, intensity: entry.intensity,
-                            motif: entry.motif, heartRate: nil)
-                    .aspectRatio(1.12, contentMode: .fit)
-                    .background(Color(red: 0.045, green: 0.047, blue: 0.055))
+                DreamPortrait(entry:entry,pixels:780,animates:false)
+                    .aspectRatio(1, contentMode: .fit)
                     .rotationEffect(.degrees(-1.5))
                     .padding(.horizontal, 8)
-                    .accessibilityLabel("The shape of this night: \(entry.motif.name)")
                 if let title = entry.title, !title.isEmpty {
                     Text(title).font(.custom("Noteworthy-Bold", size: 25, relativeTo: .title2))
                 }
@@ -27,7 +24,7 @@ struct NotebookPage: View {
                 Text(entry.text)
                     .font(.custom("Noteworthy-Light", size: 21, relativeTo: .body))
                     .lineSpacing(7).textSelection(.enabled)
-                if entry.usedAI {
+                if entry.usedAI && entry.visualRecipe == nil {
                     HStack {
                     Text("Visual mood: \(entry.feeling.label.lowercased())")
                         .font(.custom("Noteworthy-Light", size: 17, relativeTo: .body))

@@ -18,6 +18,6 @@ struct DreamArtwork: View {
         }
         .aspectRatio(1, contentMode: .fit)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Dream portrait: \(motif.name), \(feeling.label), intensity \(Int(intensity * 100)) percent.")
+        .accessibilityLabel("Dream portrait. \(motif.name) with layered lines and grain.")
     }
 }

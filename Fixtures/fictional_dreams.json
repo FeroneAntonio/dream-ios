@@ -1,0 +1,54 @@
+{
+  "purpose": "Synthetic creative and regression fixtures for DREAM Visual Grammar 1.0; not psychological ground truth",
+  "locale": "en",
+  "dreams": [
+    {
+      "id": "D01", "seed": 201,
+      "text": "I was walking in a forest when the path split into three. I could see each direction clearly.",
+      "narrativeAnchors": ["walking", "path split into three"],
+      "expectedPrimaryCandidates": ["branchingPaths"], "expectedLayoutCandidates": ["split", "distributed"]
+    },
+    {
+      "id": "D02", "seed": 202,
+      "text": "I opened seven doors, but every door took me back to the same quiet room.",
+      "narrativeAnchors": ["seven doors", "back to the same quiet room"],
+      "expectedPrimaryCandidates": ["thresholdRooms", "nestedEchoes"], "expectedLayoutCandidates": ["central", "offCenter"]
+    },
+    {
+      "id": "D03", "seed": 203,
+      "text": "I was talking to my mother in a crowd that kept growing larger. I could still see her clearly.",
+      "narrativeAnchors": ["my mother", "crowd", "growing larger"],
+      "expectedPrimaryCandidates": ["constellationGraph", "particleField"], "expectedLayoutCandidates": ["dualFocus", "distributed"]
+    },
+    {
+      "id": "D04", "seed": 204,
+      "text": "I was swimming under dark water. Then I rose to the surface and saw warm sunlight everywhere.",
+      "narrativeAnchors": ["swimming under dark water", "rose to the surface", "sunlight"],
+      "expectedPrimaryCandidates": ["flowField", "chromaticHaze"], "expectedLayoutCandidates": ["verticalJourney", "split"]
+    },
+    {
+      "id": "D05", "seed": 205,
+      "text": "I was falling from a tower and felt afraid. Someone reached out and caught me. Then I felt safe.",
+      "narrativeAnchors": ["falling from a tower", "caught me", "felt afraid", "felt safe"],
+      "expectedPrimaryCandidates": ["flowField", "constellationGraph"], "expectedLayoutCandidates": ["verticalJourney", "split"]
+    },
+    {
+      "id": "D06", "seed": 206,
+      "text": "The streets of a city bent sideways around me, then the buildings broke into small pieces.",
+      "narrativeAnchors": ["streets", "bent sideways", "broke into small pieces"],
+      "expectedPrimaryCandidates": ["warpedBands", "fracturedCells"], "expectedLayoutCandidates": ["diagonal", "split"]
+    },
+    {
+      "id": "D07", "seed": 207,
+      "text": "I climbed a staircase that never ended. Each landing looked exactly like the one before it, over and over.",
+      "narrativeAnchors": ["staircase that never ended", "over and over"],
+      "expectedPrimaryCandidates": ["nestedEchoes", "spiralImprint"], "expectedLayoutCandidates": ["central", "verticalJourney"]
+    },
+    {
+      "id": "D08", "seed": 208,
+      "text": "I only remember a distant light inside a large empty, quiet space. Nothing else was there.",
+      "narrativeAnchors": ["distant light", "empty, quiet space", "Nothing else"],
+      "expectedPrimaryCandidates": ["negativeVoid", "chromaticHaze"], "expectedLayoutCandidates": ["voidFocus", "offCenter"]
+    }
+  ]
+}

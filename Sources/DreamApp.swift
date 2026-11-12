@@ -9,6 +9,7 @@ struct DreamApp: App {
                 .preferredColorScheme(.dark).environment(\.locale, Locale(identifier: "en_US"))
                 .task {
                     #if DEBUG
+                    await VisualGrammarProbe.runIfRequested()
                     await InterpretationProbe.runIfRequested()
                     #endif
                 }

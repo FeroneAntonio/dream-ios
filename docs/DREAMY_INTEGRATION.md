@@ -8,7 +8,9 @@ DREAM integrates the actual English [DReAMy DreamBank BERT checkpoint](https://h
 2. **Interpret dream** runs DReAMy on-device to suggest emotions appearing in the report.
 3. Apple Foundation Models uses these tentative suggestions alongside the original narrative to write the possible personal reading and open question.
 4. Suggestions are saved with the dream and shown below its text. The image appears above the reading.
-5. A first explicit creative mapping chooses fragments for confusion, flow for sadness, orbits for happiness, in that priority order. Other cases keep the story's suggested motif. Palette and energy still come from the narrative/selected feeling. **Scores are not emotional intensity or biometric measurements.** The portrait remains editable.
+5. Visual Grammar 1.0 uses independent presence hints only for small print-finish adjustments. Literal narrative cues choose geometry; emotion labels never choose hue or the primary family. User refinements override those finish hints. The old confusion→fragment / sadness→flow / happiness→orbit mapping remains solely for historical display compatibility.
+
+See [Visual Grammar 1.0](VISUAL_GRAMMAR.md) for source hierarchy, preserved historical portraits, narrative evidence and the static recipe renderer.
 
 If DReAMy is unavailable, the normal reading can continue. If Apple Intelligence is unavailable, DReAMy can still annotate and influence the portrait; the written fallback remains honestly labeled as a reflection prompt. Changing the dream text clears old emotion annotations and the unchanged AI reading so the revised story can be interpreted again; an explicitly edited reflection is preserved.
 
@@ -49,3 +51,8 @@ Conversion downloads only this pinned checkpoint, checks its source SHA-256, use
 Emotion annotation is useful structured context for a visual language. It does not decode hidden meanings, diagnose the dreamer or establish universal symbol meanings. Model card evaluation is not evidence of interpretation accuracy in DREAM; user corrections take precedence.
 
 DReAMy's T5 character/activity extraction models could later guide separate geometric nuclei and relationships. They are **not integrated in this change**: each needs a separate conversion, validation and mobile performance check. XLM-R large is heavier and its Italian quality is unverified. Cortal's dream-t5 checkpoint has a noncommercial license, so it is not part of this app. SLAMSS-IFS is a separate sleep-stage research integration; see [its status](SLAMSS_INTEGRATION.md).
+
+
+## Physical prototype check
+
+The 0.4 integration also ran successfully on a physical iPhone 17 using a fixed fictional English report: DReAMy annotations were available, Apple Intelligence returned a reading, and a valid narrative-led recipe was produced. This is a functional engineering check, not classifier validation or standalone model latency/memory profiling. See [verification details](VISUAL_GRAMMAR_VALIDATION.md).

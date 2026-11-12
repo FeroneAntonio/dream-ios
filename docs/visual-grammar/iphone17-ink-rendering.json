@@ -1,0 +1,67 @@
+{
+  "grammarVersion" : 1,
+  "measurements" : [
+    {
+      "bytes" : 562938,
+      "family" : "branchingPaths",
+      "geometryAndPNG" : "0.076125083 seconds",
+      "id" : "D01",
+      "seed" : 201
+    },
+    {
+      "bytes" : 619744,
+      "family" : "thresholdRooms",
+      "geometryAndPNG" : "0.046362292 seconds",
+      "id" : "D02",
+      "seed" : 202
+    },
+    {
+      "bytes" : 559627,
+      "family" : "constellationGraph",
+      "geometryAndPNG" : "0.062551875 seconds",
+      "id" : "D03",
+      "seed" : 203
+    },
+    {
+      "bytes" : 1407151,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.096365625 seconds",
+      "id" : "D04",
+      "seed" : 204
+    },
+    {
+      "bytes" : 736313,
+      "family" : "flowField",
+      "geometryAndPNG" : "0.07496225 seconds",
+      "id" : "D05",
+      "seed" : 205
+    },
+    {
+      "bytes" : 871312,
+      "family" : "warpedBands",
+      "geometryAndPNG" : "0.064236458 seconds",
+      "id" : "D06",
+      "seed" : 206
+    },
+    {
+      "bytes" : 740248,
+      "family" : "nestedEchoes",
+      "geometryAndPNG" : "0.041656166 seconds",
+      "id" : "D07",
+      "seed" : 207
+    },
+    {
+      "bytes" : 353953,
+      "family" : "negativeVoid",
+      "geometryAndPNG" : "0.025533291 seconds",
+      "id" : "D08",
+      "seed" : 208
+    }
+  ],
+  "note" : "Cold or cached render duration; not frame cadence, peak memory or scientific model accuracy. No models or health data used.",
+  "pixels" : 1080,
+  "rendererVersion" : 2,
+  "status" : "complete",
+  "synthetic" : true,
+  "systemVersion" : "Version 27.2 (Build 24B119)"
+}

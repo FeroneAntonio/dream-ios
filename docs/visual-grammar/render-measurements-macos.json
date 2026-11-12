@@ -1,0 +1,82 @@
+[
+  {
+    "allExportsDuration" : "0.093846917 seconds",
+    "geometryDuration" : "0.008699417 seconds",
+    "geometryHash" : "eb55cca542fc91b2fc260d62f8f034bbca2978229fb5e5272f0b3665a0973a4a",
+    "id" : "D01",
+    "layout" : "split",
+    "marks" : 6213,
+    "points" : 38093,
+    "primary" : "branchingPaths"
+  },
+  {
+    "allExportsDuration" : "0.049713417 seconds",
+    "geometryDuration" : "0.00098525 seconds",
+    "geometryHash" : "6c6fa3d6aaba67714fb6bd13f2cba4c71d881038072e918045ab770581064040",
+    "id" : "D02",
+    "layout" : "offCenter",
+    "marks" : 4781,
+    "points" : 17057,
+    "primary" : "thresholdRooms"
+  },
+  {
+    "allExportsDuration" : "0.055447542 seconds",
+    "geometryDuration" : "0.001477 seconds",
+    "geometryHash" : "5150839a97a577ff21fdd0d61035c4dbd326fed891ca75a58b0b58def66954f6",
+    "id" : "D03",
+    "layout" : "dualFocus",
+    "marks" : 6178,
+    "points" : 24888,
+    "primary" : "constellationGraph"
+  },
+  {
+    "allExportsDuration" : "0.082577042 seconds",
+    "geometryDuration" : "0.003137959 seconds",
+    "geometryHash" : "be0d576f365d6270f3884d3b0468b9c39c1eb43a2d2b4f8daf037855a7e969fa",
+    "id" : "D04",
+    "layout" : "verticalJourney",
+    "marks" : 5824,
+    "points" : 34954,
+    "primary" : "flowField"
+  },
+  {
+    "allExportsDuration" : "0.069109542 seconds",
+    "geometryDuration" : "0.002932125 seconds",
+    "geometryHash" : "5d8d60430126bf7c717d618b69e72abb5be92833a8d178e7364cc13a6eb9401b",
+    "id" : "D05",
+    "layout" : "verticalJourney",
+    "marks" : 6811,
+    "points" : 46512,
+    "primary" : "flowField"
+  },
+  {
+    "allExportsDuration" : "0.061720041 seconds",
+    "geometryDuration" : "0.001075791 seconds",
+    "geometryHash" : "c98a3f9b6926540b797827b4f8c2468c62c655d7dc5bd97faeba455eb74a693f",
+    "id" : "D06",
+    "layout" : "diagonal",
+    "marks" : 5338,
+    "points" : 19580,
+    "primary" : "warpedBands"
+  },
+  {
+    "allExportsDuration" : "0.051216959 seconds",
+    "geometryDuration" : "0.000851834 seconds",
+    "geometryHash" : "5efdf96cccfacc1fa8645018eacbdfa478e82c8aeff01f48f72260004d4f0687",
+    "id" : "D07",
+    "layout" : "verticalJourney",
+    "marks" : 4618,
+    "points" : 15828,
+    "primary" : "nestedEchoes"
+  },
+  {
+    "allExportsDuration" : "0.032344417 seconds",
+    "geometryDuration" : "0.000466 seconds",
+    "geometryHash" : "2be2ce5afc7436999ab7f00b84d081ddd4d7f4f18976353e2ddfdc80ac7c51a6",
+    "id" : "D08",
+    "layout" : "voidFocus",
+    "marks" : 3081,
+    "points" : 6281,
+    "primary" : "negativeVoid"
+  }
+]

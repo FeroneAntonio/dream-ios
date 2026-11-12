@@ -24,16 +24,11 @@ struct DreamEditView: View {
                     TextField("A title, if you like", text: $title)
                     TextField("Your dream", text: $entry.text, axis: .vertical).lineLimit(5...12)
                 }
-                Section("The portrait") {
-                    Picker("Feeling", selection: $entry.feeling) {
+                Section("Your feeling") {
+                    Picker("Feeling",selection:$entry.feeling) {
                         ForEach(DreamFeeling.allCases) { feeling in Text(feeling.label).tag(feeling) }
                     }
-                    Slider(value: $entry.intensity).accessibilityLabel("Intensity")
-                    Picker("Shape", selection: $entry.motif) {
-                        Text("Orbits").tag(DreamMotif.orbit)
-                        Text("Flow").tag(DreamMotif.flow)
-                        Text("Fragments").tag(DreamMotif.fragment)
-                    }
+                    Text("Your saved portrait stays the same. Use Refine portrait to change its appearance.").font(.footnote)
                 }
                 Section("Your reflection") {
                     TextField("What comes to mind?", text: $entry.reflection, axis: .vertical).lineLimit(3...8)

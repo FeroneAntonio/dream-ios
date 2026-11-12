@@ -7,6 +7,9 @@ struct DreamDetail: View {
     @State private var nightRequest = 0
     @State private var confirmDeletion = false
     @State private var editing = false
+    @State private var refining = false
+    @State private var recreating = false
+    @State private var exportRequest = 0
     @State private var export: URL?
     @State private var exportError: String?
     @Environment(DreamStore.self) private var store
@@ -17,15 +20,26 @@ struct DreamDetail: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                DreamArtwork(seed: entry.seed, feeling: entry.feeling, intensity: entry.intensity,
-                             heartRate: entry.night?.heartRate, motif: entry.motif)
+                DreamPortrait(entry:entry,pixels:1080,animates:false)
                     .frame(maxHeight: 390)
+                if let recipe = entry.visualRecipe {
+                    VStack(alignment:.leading,spacing:8) {
+                        Text("Why this drawing?").font(.headline).fontDesign(.serif)
+                        Text(recipe.why).font(.subheadline)
+                        if entry.portraitUsesEarlierText {
+                            Text("This portrait belongs to an earlier version of your story.").font(.footnote).foregroundStyle(.secondary)
+                            Button("Recreate portrait from edited dream",action:recreatePortrait).frame(minHeight:44)
+                        }
+                    }.accessibilityIdentifier("whyThisDrawing")
+                }
+                Button("Refine portrait",systemImage:"slider.horizontal.3",action:refinePortrait)
+                    .frame(minHeight:44).disabled(reader.isCreating).accessibilityIdentifier("refinePortrait")
                 Text(entry.date, format: .dateTime.day().month(.wide).year())
                     .font(.footnote).foregroundStyle(Color("SecondaryInk"))
                 if let title = entry.title, !title.isEmpty { Text(title).font(.title).fontDesign(.serif) }
                 if let filename = entry.audioFilename { DreamAudioPlayback(filename: filename) }
                 Text(entry.text).textSelection(.enabled)
-                if let emotions = entry.emotions { DreamEmotionView(analysis: emotions, motif: entry.motif) }
+                if let emotions = entry.emotions { DreamEmotionView(analysis:emotions,motif:entry.motif,usesVisualGrammar:entry.visualRecipe != nil) }
                 if !entry.reflection.isEmpty {
                     Divider()
                     Text(entry.usedAI ? "A possible meaning" : "A moment to reflect")
@@ -33,7 +47,7 @@ struct DreamDetail: View {
                     Text(entry.reflection)
                     Text(entry.question).font(.title3).fontDesign(.serif)
                     if !entry.usedAI {
-                        Text("Apple Intelligence is not ready. This is a reflection prompt, not an AI interpretation.")
+                        Text("A reflection prompt or your own words, rather than an AI interpretation.")
                             .font(.footnote).foregroundStyle(Color("SecondaryInk"))
                     }
                 } else if !entry.text.isEmpty {
@@ -50,7 +64,7 @@ struct DreamDetail: View {
                     Spacer()
                     if let export {
                         ShareLink(item: export) { Label("Share", systemImage: "square.and.arrow.up") }
-                    } else { Button("Share", systemImage: "square.and.arrow.up", action: prepareExport) }
+                    } else { Button("Share", systemImage: "square.and.arrow.up", action: requestExport) }
                 }.font(.subheadline)
                 DisclosureGroup("The night") {
                     VStack(alignment: .leading, spacing: 16) {
@@ -74,6 +88,8 @@ struct DreamDetail: View {
         }
         .background(Color("Paper"))
         .sheet(isPresented: $editing) { DreamEditView(entry: entry, onSave: applyEdit) }
+        .sheet(isPresented:$refining) { PortraitRefinementView(entry:entry,recreate:recreating,onConfirm:savePortrait) }
+        .task(id:exportRequest,prepareExport)
         .task(id: reflectionRequest, reflect)
         .task(id: nightRequest, loadNight)
         .onDisappear(perform: removeExport)
@@ -88,23 +104,24 @@ struct DreamDetail: View {
         reader.intensity = snapshot.intensity
         reader.night = snapshot.night
         await reader.create()
-        guard !Task.isCancelled, let result = reader.result, entry.text == snapshot.text else { return }
-        var updated = snapshot
+        guard !Task.isCancelled, let result = reader.result, entry.text == snapshot.text,
+              store.entries.contains(where:{ $0.id == snapshot.id }) else { return }
+        // Preserve any night/context update that completed while the model awaited.
+        var updated = entry
         updated.reflection = result.reflection
         updated.question = result.question
         updated.usedAI = result.usedAI
-        updated.motif = result.motif
-        updated.feeling = result.feeling
-        updated.intensity = result.intensity
-        updated.emotions = result.emotions
-        if snapshot.title?.isEmpty != false { updated.title = result.title }
+        // A new written reading never silently replaces the saved portrait.
+        updated.emotions = result.emotions ?? entry.emotions
+        if updated.title?.isEmpty != false { updated.title = result.title }
         if store.save(updated) { entry = updated; removeExport() }
     }
     private func requestNight() { nightRequest += 1 }
     private func loadNight() async {
         guard nightRequest > 0 else { return }
         await reader.loadNight(before: entry.date)
-        guard !Task.isCancelled, let night = reader.night else { return }
+        guard !Task.isCancelled, let night = reader.night,
+              store.entries.contains(where:{ $0.id == entry.id }) else { return }
         var updated = entry
         updated.night = night
         if store.save(updated) { entry = updated }
@@ -118,9 +135,37 @@ struct DreamDetail: View {
     private func applyEdit(_ updated: DreamEntry) { entry = updated; removeExport() }
     private func requestDeletion() { confirmDeletion = true }
     private func delete() { store.delete(entry); if store.error == nil { dismiss() } }
-    private func prepareExport() {
-        let artwork = DreamCanvas(seed: entry.seed, feeling: entry.feeling, intensity: entry.intensity,
-                                  motif: entry.motif, heartRate: nil)
+    private func refinePortrait() { recreating = false; refining = true }
+    private func recreatePortrait() { recreating = true; refining = true }
+    private func savePortrait(_ recipe: DreamVisualRecipe) async -> Bool {
+        do {
+            let data = try await PortraitService.shared.png(recipe:recipe)
+            try Task.checkCancellation()
+            guard store.entries.contains(where:{ $0.id == entry.id }) else { return false }
+            var updated = entry
+            updated.visualRecipe = recipe
+            if let energy = recipe.userAdjustments.energy { updated.intensity = energy }
+            guard store.save(updated,portraitData:data) else { return false }
+            entry = store.entries.first { $0.id == updated.id } ?? updated
+            removeExport()
+            return true
+        } catch { exportError = "Your portrait could not be saved. Your original is safe."; return false }
+    }
+    private func requestExport() { exportRequest += 1 }
+    private func prepareExport() async {
+        guard exportRequest > 0 else { return }
+        if let recipe = entry.visualRecipe {
+            do {
+                let data = try await PortraitService.shared.png(recipe:recipe,snapshot:store.snapshotURL(for:entry))
+                try Task.checkCancellation()
+                let url = URL.temporaryDirectory.appending(path:"DREAM-\(entry.id.uuidString).png")
+                try data.write(to:url,options:[.atomic,.completeFileProtection])
+                export = url
+            } catch { exportError = "The image could not be prepared." }
+            return
+        }
+        let legacy = entry.legacyPortrait ?? LegacyPortrait(seed:entry.seed,feeling:entry.feeling,intensity:entry.intensity,motif:entry.motif)
+        let artwork = DreamCanvas(seed:legacy.seed,feeling:legacy.feeling,intensity:legacy.intensity,motif:legacy.motif,heartRate:nil)
             .frame(width: 1080, height: 1080).background(Color(red: 0.045, green: 0.047, blue: 0.055))
         let renderer = ImageRenderer(content: artwork)
         guard let data = renderer.uiImage?.pngData() else { exportError = "The image could not be prepared."; return }

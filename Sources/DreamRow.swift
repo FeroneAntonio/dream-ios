@@ -4,7 +4,7 @@ struct DreamRow: View {
     var entry: DreamEntry
     var body: some View {
         HStack(spacing: 16) {
-            DreamArtwork(seed: entry.seed, feeling: entry.feeling, intensity: entry.intensity, heartRate: nil, motif: entry.motif, animates: false)
+            DreamPortrait(entry:entry,pixels:176,animates:false)
                 .frame(width: 88, height: 88).accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 6) {
                 Text(entry.date, format: .dateTime.day().month(.wide)).font(.footnote).foregroundStyle(Color("SecondaryInk"))

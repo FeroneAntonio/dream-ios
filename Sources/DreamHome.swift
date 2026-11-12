@@ -22,9 +22,10 @@ struct DreamHome: View {
                     if mode == nil {
                         Text("Give your dream a shape.").font(.title2).fontDesign(.serif).padding(.top, 24)
                         Button(action: openLatest) {
-                            DreamArtwork(seed: latest?.seed ?? 91, feeling: latest?.feeling ?? .confusion,
-                                         intensity: latest?.intensity ?? 0.8, heartRate: latest?.night?.heartRate,
-                                         motif: latest?.motif ?? .flow).frame(maxHeight: 470)
+                            Group {
+                                if let latest { DreamPortrait(entry:latest,pixels:780,animates:false) }
+                                else { DreamPortraitPlaceholder() }
+                            }.frame(maxHeight:470)
                         }
                         .buttonStyle(.plain).disabled(latest == nil)
                         .accessibilityLabel(latest == nil ? "Visual exploration" : "Open your latest dream")
@@ -56,13 +57,7 @@ struct DreamHome: View {
             .background(Color("Paper"))
             .safeAreaBar(edge: .bottom) {
                 if mode == nil {
-                    HStack(spacing: 12) {
-                        Button("Record", systemImage: "mic", action: record)
-                            .buttonStyle(.borderedProminent).tint(.white).foregroundStyle(.black)
-                            .accessibilityIdentifier("newVoiceDream")
-                        Button("Write", systemImage: "square.and.pencil", action: write)
-                            .buttonStyle(.bordered).tint(.white).accessibilityIdentifier("newTextDream")
-                    }.controlSize(.large).frame(maxWidth: .infinity).padding(.vertical, 16)
+                    DreamCaptureActions(onRecord:record,onWrite:write)
                 } else {
                     Button(action: requestInterpretation) {
                         HStack {
@@ -129,12 +124,16 @@ struct DreamHome: View {
         guard !Task.isCancelled, var entry = composer.result else { return }
         do {
             if mode == .voice { entry.audioFilename = try voice.preserveRecording(for: entry.id) }
-            if store.save(entry) {
+            let poster: Data?
+            if let recipe = entry.visualRecipe { poster = try await PortraitService.shared.png(recipe:recipe) }
+            else { poster = nil }
+            guard !Task.isCancelled else { return }
+            if store.save(entry,portraitData:poster) {
                 if mode == .voice { voice.discardSavedDraft() }
                 composer.clearDraft()
                 mode = nil
                 writing = false
-                openedDream = entry
+                openedDream = store.entries.first { $0.id == entry.id } ?? entry
             }
         } catch { captureError = "Your recording is safe. Please try again." }
     }

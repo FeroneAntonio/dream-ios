@@ -52,3 +52,11 @@ Research/**/checkpoints.json
 
 # Local creative handoff: do not publish
 DREAM_CONTESTO_PER_BRIEF_VISIVO.md
+
+# Creative handoff and third-party moodboard stay outside the public project
+DREAM_CODEX_IMPLEMENTATION_BRIEF.md
+DREAM_CODEX_HANDOFF_*.zip
+references/
+pinterest*
+portraits/
+visual-grammar-qa/

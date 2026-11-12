@@ -22,7 +22,8 @@ struct DreamEmotionAnalysis: Codable, Hashable, Sendable {
         return zip(DreamEmotion.allCases, scores).compactMap { $1 > 0.5 ? $0 : nil }
     }
     var summary: String { present.map(\.label).joined(separator: ", ") }
-    // Artistic presets use presence, never the score as measured emotional intensity.
+    // Legacy-only display compatibility. New portraits use VisualRuleEngine,
+    // where independent hints never choose the primary family or palette.
     var suggestedMotif: DreamMotif? {
         if present.contains(.confusion) { return .fragment }
         if present.contains(.sadness) { return .flow }
